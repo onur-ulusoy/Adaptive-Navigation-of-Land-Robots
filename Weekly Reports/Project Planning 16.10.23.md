@@ -31,4 +31,33 @@ Reinforcement Learning (RL) offers a layer of adaptability absent in traditional
 
 Incorporating RL with traditional algorithms like nav2 results in a holistic approach to robotic navigation. Nav2 guarantees basic navigational standards, while RL facilitates more intricate, adaptive behaviors for effective navigation in challenging environments.
 
+### Robot Overview
+
+#### Wheel Choice
+
+Mobile robots can be designed with various wheel configurations, each catering to specific needs:
+
+- **Differential Drive**: Uses two separately driven wheels for motion.
+  - **Advantage**: Offers simplicity in design and control.
+  - **Disadvantage**: Lacks the ability to strafe sideways.
+
+- **Omni-wheels**: Allows omnidirectional movement without needing to rotate the entire robot.
+  - **Advantage**: Can move in any direction, offering enhanced maneuverability.
+  - **Disadvantage**: Often requires a more complex wheel arrangement and can be mechanically intricate.
+
+- **Ackermann Steering**: Uses steerable wheels, typically seen in cars and trucks.
+  - **Advantage**: Provides efficient turning without skidding, especially at high speeds.
+  - **Disadvantage**: Limited to forward, backward, and rotational movements without the ability to strafe.
+
+Considering our robot's requirements of efficient navigation in tight, dynamic spaces, we've chosen the **Mecanum Wheel** design. Here's why:
+
+- **Omnidirectional Movement**: Mecanum wheels enable the robot to strafe side-to-side, move forward and backward, and rotate on the spot without needing to turn first.
+
+- **Agility in Tight Spaces**: Perfect for environments like warehouses and production lines where the robot can exploit its agility to traverse narrow corridors, make sharp turns, and position itself with precision.
+
+- **Simplified Mechanical Design**: Unlike other complex steering systems, Mecanum wheels offer omnidirectional capabilities without additional steering actuators by merely varying the speed and direction of each wheel.
+
+- **Predictable Motion**: When expertly controlled, a Mecanum-wheeled robot can provide smooth and predictable movements, an essential trait for precision tasks.
+
+Given these advantages and our specific operational needs, the Mecanum wheel system emerges as the superior choice for our robot's mobility.
 
