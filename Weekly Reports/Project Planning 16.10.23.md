@@ -15,6 +15,11 @@
     - [The Challenge](#the-challenge)
     - [Possible Approaches](#possible-approaches)
     - [Current Trends](#current-trends)
+  - [Project Plans for the Upcoming Year](#project-plans-for-the-upcoming-year)
+    - [Phase 1: Foundational Setup and Basic Navigation](#phase-1-foundational-setup-and-basic-navigation)
+    - [Phase 2: Integration of RL with Nav2](#phase-2-integration-of-rl-with-nav2)
+    - [Phase 3: Advanced Capabilities (if prior phases are successful)](#phase-3-advanced-capabilities-if-prior-phases-are-successful)
+  - [Conclusion](#conclusion)
 
 ### Project Summary
 In our control & automation bachelor's design project, we aim to simulate a robot, using Gazebo, that can navigate tight and dynamically-obstructed warehouses or production lines. Combining the capabilities of ROS 2 tools like Nav2 and Cartographer with Reinforcement Learning, the robot will adaptively navigate between waypoints, especially in scenarios where traditional algorithms might be challenged. The robot's operations and decisions will be visualized in real-time using Rviz, offering an innovative approach to advanced robotics in complex environments.
@@ -167,3 +172,23 @@ Understanding this potential conflict, there are several methods to integrate Na
 While all these approaches have their merits, hierarchical decision-making is gaining traction in the robotics community. It offers a balanced blend of traditional algorithms' reliability and the adaptability of RL. By having Nav2 decide on the overall navigation strategy and letting RL handle challenging micro-decisions, robots can navigate efficiently even in complex environments.
 
 The choice of approach largely depends on the specific application, the environment, and the robot's objectives. But with the rapid advancements in both Nav2 and RL, the fusion of these methods heralds an exciting era for robotic navigation.
+
+
+
+### Project Plans for the Upcoming Year
+
+As we embark on this exciting journey in our Control & Automation B.Sc. design project, we have charted out a roadmap that aims to push the boundaries of what our robot can achieve, with a primary focus on navigation and interactivity. Our year-long plan is strategically divided into primary goals and subsequent advanced objectives, ensuring a structured and systematic development process.
+
+#### Phase 1: Foundational Setup and Basic Navigation
+During this foundational phase, our primary goal is to set up the robot with all necessary sensors, ensuring proper data fusion to achieve an accurate representation of the environment. The incorporation of controllers will allow the robot to move optimally to desired locations. Using the Nav2 navigation stack, the robot will be tuned to navigate through gazebo environments, focusing particularly on reliability and efficiency.
+
+#### Phase 2: Integration of RL with Nav2 
+Building upon the base set in Phase 1, this stage will usher in the integration of Reinforcement Learning (RL) with the Nav2 stack. Our robot will be trained on a plethora of custom Gazebo maps, tailored to replicate real-world conditions found in warehouses or production lines. This intensive training will ensure that the robot not only navigates to waypoints but does so optimally, leveraging behaviors it has learned over time.
+
+#### Phase 3: Advanced Capabilities (if prior phases are successful)
+This phase aims to venture beyond the basic navigational capabilities. If our progress is on track and the prior phases are successful, we will delve into more advanced functionalities:
+- **Enhanced Vision**: Our robot could process imagery from its cameras, giving it the ability to "see" and interpret its surroundings more intricately.
+- **Intelligent Interactivity**: By analyzing the visual data, the robot will differentiate between obstacles. It could then engage in specific behaviors based on the obstacle type. For instance, it might pause or alter its path upon detecting humans, ensuring safety and polite interactions. Alternatively, it could interact with replaceable items, offering potential utility in dynamic environments.
+
+### Conclusion
+Our project's ambitious vision is to create a robot that is not only adept at navigating but can also adapt and interact intelligently with its environment. While challenges are inevitable, we are confident that our systematic approach, combined with our passion for robotics, will lead to groundbreaking results by the end of the year.
