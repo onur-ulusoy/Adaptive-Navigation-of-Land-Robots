@@ -11,7 +11,7 @@
     - [Localization](#localization)
     - [Mapping](#mapping)
     - [Wheels Motor Control](#wheels-motor-control)
-  - [Nav2 \& RL Combination: A New Frontier in Robotic Navigation](#nav2--rl-combination-a-new-frontier-in-robotic-navigation)
+  - [Nav2 & RL Combination: A New Frontier in Robotic Navigation](#nav2--rl-combination-a-new-frontier-in-robotic-navigation)
     - [The Challenge](#the-challenge)
     - [Possible Approaches](#possible-approaches)
     - [Current Trends](#current-trends)
