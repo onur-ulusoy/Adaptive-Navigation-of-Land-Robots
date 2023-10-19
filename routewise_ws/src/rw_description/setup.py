@@ -1,15 +1,18 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 package_name = 'rw_description'
 
 setup(
     name=package_name,
     version='0.0.0',
-    packages=[package_name],
+    packages=find_packages(),
     data_files=[
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
+        # Include the urdf directory and its contents
+        ('share/' + package_name + '/urdf', ['rw_description/urdf/routewise_material.xacro',
+                                              'rw_description/urdf/routewise_core.xacro', 'rw_description/urdf/routewise.urdf.xacro']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
