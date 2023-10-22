@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro" name="routewise">
+
+    <!-- Include Material and Core Files -->
+    <xacro:include filename="$(find rw_description)/urdf/routewise_material.xacro"/>
+    <xacro:include filename="$(find rw_description)/urdf/routewise_core.xacro"/>
+
+    <!-- Additional robot components, sensors, etc., can be added here -->
+
+</robot>
