@@ -10,7 +10,8 @@ setup(
         ('share/ament_index/resource_index/packages',
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
-        ('share/' + package_name + '/gazebo_maps', ['rw_simulation/gazebo_maps/initial_map']),
+        ('share/' + package_name + '/launch', ['launch/gazebo_launch.py']),                              # Include the launch directory
+        ('share/' + package_name + '/gazebo_maps', ['rw_simulation/gazebo_maps/initial_map.world']),     # Include the gazebo map
     ],
     install_requires=['setuptools'],
     zip_safe=True,
