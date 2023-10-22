@@ -16,17 +16,28 @@ class GeometryCheckNode(Node):
         pkg_path_output, _ = pkg_path_process.communicate()
         pkg_path = pkg_path_output.strip()  # Remove newline at the end
 
-        # Construct the path to your script
-        script_path = os.path.join(pkg_path, 'share', 'rw_description', 'urdf', 'geometry_check.bash')
+        # Construct the path to your xacro file
+        xacro_path = os.path.join(pkg_path, 'share', 'rw_description', 'urdf', 'routewise.urdf.xacro')
+        urdf_path = os.path.join(pkg_path, 'share', 'rw_description', 'urdf', 'routewise.urdf')
 
-        # Run the script
-        result = subprocess.run([script_path], stdout=subprocess.PIPE, text=True)
-        if result.returncode == 0:
-            self.get_logger().info(f'Script output: {result.stdout}')
+        # Run xacro command
+        xacro_result = subprocess.run(['xacro', xacro_path], stdout=subprocess.PIPE, text=True)
+        if xacro_result.returncode != 0:
+            self.get_logger().error(f'Xacro command failed with error: {xacro_result.stderr}')
+            return
+
+        # Save the xacro output to a urdf file
+        with open(urdf_path, 'w') as urdf_file:
+            urdf_file.write(xacro_result.stdout)
+
+        # Run check_urdf command
+        check_urdf_result = subprocess.run(['check_urdf', urdf_path], stdout=subprocess.PIPE, text=True)
+        if check_urdf_result.returncode == 0:
+            self.get_logger().info(f'check_urdf output: {check_urdf_result.stdout}')
         else:
-            self.get_logger().error(f'Script failed with error: {result.stderr}')
+            self.get_logger().error(f'check_urdf command failed with error: {check_urdf_result.stderr}')
 
-        # Shutdown the node after executing the script
+        # Shutdown the node after executing the commands
         rclpy.shutdown()
 
 def main(args=None):

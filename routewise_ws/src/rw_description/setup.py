@@ -13,8 +13,7 @@ setup(
         # Include the urdf directory and its contents
         ('share/' + package_name + '/urdf', ['rw_description/urdf/routewise_material.xacro',
                                               'rw_description/urdf/routewise_core.xacro', 
-                                              'rw_description/urdf/routewise.urdf.xacro',
-                                              'rw_description/urdf/geometry_check.bash']),
+                                              'rw_description/urdf/routewise.urdf.xacro']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
