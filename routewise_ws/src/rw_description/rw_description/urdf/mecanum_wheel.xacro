@@ -8,10 +8,9 @@
   <xacro:property name="wheel_width" value="0.05"/>
   <xacro:property name="roller_radius" value="0.012"/>
   <xacro:property name="roller_length" value="${wheel_width}"/>
-  <xacro:property name="roller_angle" value="0.785398"/> <!-- 45 degrees in radians -->
 
   <!-- Mecanum Wheel Macro -->
-  <xacro:macro name="mecanum_wheel" params="name">
+  <xacro:macro name="mecanum_wheel" params="name roller_angle">
 
     <!-- Derived Properties -->
     <xacro:property name="I_wheel_xx_yy" value="0.0250833333333333"/>

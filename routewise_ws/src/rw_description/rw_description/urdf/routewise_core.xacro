@@ -51,16 +51,16 @@
         <joint name="${name}" type="continuous">
             <parent link="${parent}"/>
             <child link="${child}"/>
-            <origin xyz="${xyz}" rpy="${pi/2} 0 0"/>
+            <origin xyz="${xyz}" rpy="${3*pi/2} 0 0"/>
             <axis xyz="0 0 1"/>
         </joint>
     </xacro:macro>
 
     <!-- Wheel Links and Joints -->
-    <xacro:mecanum_wheel name="front_left_wheel"/>
-    <xacro:mecanum_wheel name="front_right_wheel"/>
-    <xacro:mecanum_wheel name="rear_left_wheel"/>
-    <xacro:mecanum_wheel name="rear_right_wheel"/>
+    <xacro:mecanum_wheel name="front_left_wheel" roller_angle = "-0.785398"/> <!--Negative Inclination-->
+    <xacro:mecanum_wheel name="front_right_wheel" roller_angle = "0.785398"/> <!--Positive Inclination-->    <!-- 45 degrees in radians -->
+    <xacro:mecanum_wheel name="rear_left_wheel" roller_angle = "0.785398"/>
+    <xacro:mecanum_wheel name="rear_right_wheel" roller_angle = "-0.785398"/>
 
     <xacro:wheel_joint name="front_left_wheel_joint" parent="base_link" child="front_left_wheel" xyz="${joint_offset_length} ${joint_offset_width} 0"/>
     <xacro:wheel_joint name="front_right_wheel_joint" parent="base_link" child="front_right_wheel" xyz="${joint_offset_length} -${joint_offset_width} 0"/>
