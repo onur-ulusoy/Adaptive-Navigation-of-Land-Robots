@@ -5,6 +5,11 @@
     <xacro:property name="base_length" value="0.5"/>
     <xacro:property name="base_width" value="0.5"/>
     <xacro:property name="base_height" value="0.1"/>
+    <xacro:property name="width_offset_tolerance" value="0.008"/> 
+
+    <!-- Derived Parameters -->
+    <xacro:property name="joint_offset_width" value="${base_width/2 + wheel_width/2 + width_offset_tolerance}"/>
+    <xacro:property name="joint_offset_length" value="${base_length/2}"/>
 
     <!-- Inertial Macros -->
     <xacro:macro name="inertial_box" params="mass x y z">
@@ -57,9 +62,8 @@
     <xacro:mecanum_wheel name="rear_left_wheel"/>
     <xacro:mecanum_wheel name="rear_right_wheel"/>
 
-    <xacro:wheel_joint name="front_left_wheel_joint" parent="base_link" child="front_left_wheel" xyz="0.25 0.25 0"/>
-    <xacro:wheel_joint name="front_right_wheel_joint" parent="base_link" child="front_right_wheel" xyz="0.25 -0.25 0"/>
-    <xacro:wheel_joint name="rear_left_wheel_joint" parent="base_link" child="rear_left_wheel" xyz="-0.25 0.25 0"/>
-    <xacro:wheel_joint name="rear_right_wheel_joint" parent="base_link" child="rear_right_wheel" xyz="-0.25 -0.25 0"/>
-
+    <xacro:wheel_joint name="front_left_wheel_joint" parent="base_link" child="front_left_wheel" xyz="${joint_offset_length} ${joint_offset_width} 0"/>
+    <xacro:wheel_joint name="front_right_wheel_joint" parent="base_link" child="front_right_wheel" xyz="${joint_offset_length} -${joint_offset_width} 0"/>
+    <xacro:wheel_joint name="rear_left_wheel_joint" parent="base_link" child="rear_left_wheel" xyz="-${joint_offset_length} ${joint_offset_width} 0"/>
+    <xacro:wheel_joint name="rear_right_wheel_joint" parent="base_link" child="rear_right_wheel" xyz="-${joint_offset_length} -${joint_offset_width} 0"/>
 </robot>

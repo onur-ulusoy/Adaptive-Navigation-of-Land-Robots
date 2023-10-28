@@ -2,12 +2,12 @@
 <robot xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- Properties -->
-  <xacro:property name="wheel_mass" value="2.0"/> <!-- Assume a mass for the wheel -->
-  <xacro:property name="roller_mass" value="0.1"/> <!-- Assume a mass for the rollers -->
-  <xacro:property name="wheel_radius" value="0.1"/>
+  <xacro:property name="wheel_mass" value="2.0"/> 
+  <xacro:property name="roller_mass" value="0.1"/> 
+  <xacro:property name="wheel_radius" value="0.06"/>
   <xacro:property name="wheel_width" value="0.05"/>
-  <xacro:property name="roller_radius" value="0.02"/>
-  <xacro:property name="roller_length" value="0.05"/>
+  <xacro:property name="roller_radius" value="0.012"/>
+  <xacro:property name="roller_length" value="${wheel_width}"/>
   <xacro:property name="roller_angle" value="0.785398"/> <!-- 45 degrees in radians -->
 
   <!-- Mecanum Wheel Macro -->
