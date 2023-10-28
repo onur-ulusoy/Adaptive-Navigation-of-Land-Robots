@@ -50,7 +50,7 @@ namespace gazebo
       }
 
       // Setup ROS 2 subscription
-      this->cmd_vel_sub = this->node->create_subscription<geometry_msgs::msg::Twist>(
+      this->cmd_vel_sub = node->create_subscription<geometry_msgs::msg::Twist>(
         "/cmd_vel", 10, std::bind(&MecanumDrive::OnCmdVel, this, std::placeholders::_1)
       );
           
@@ -68,7 +68,7 @@ namespace gazebo
     public: void OnUpdate()
     {
       double v_rot = wz * ((robot_width + robot_length) / 2);
-
+      
       // Implement Mecanum kinematics to compute wheel velocities
       double front_left_vel = vx - vy - v_rot;
       double front_right_vel = vx + vy + v_rot;
@@ -80,6 +80,9 @@ namespace gazebo
       front_right_wheel->SetVelocity(0, front_right_vel);
       rear_left_wheel->SetVelocity(0, rear_left_vel);
       rear_right_wheel->SetVelocity(0, rear_right_vel);
+
+      rclcpp::spin_some(this->node);
+
     }
 
     private:
