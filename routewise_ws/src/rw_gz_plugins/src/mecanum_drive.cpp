@@ -76,10 +76,10 @@ namespace gazebo
       double rear_right_vel = vx - vy + v_rot;
 
       // Set wheel velocities
-      front_left_wheel->SetVelocity(0, front_left_vel);
-      front_right_wheel->SetVelocity(0, front_right_vel);
-      rear_left_wheel->SetVelocity(0, rear_left_vel);
-      rear_right_wheel->SetVelocity(0, rear_right_vel);
+      front_left_wheel->SetVelocity(0, front_left_vel * 14.29);
+      front_right_wheel->SetVelocity(0, front_right_vel * 14.29);
+      rear_left_wheel->SetVelocity(0, rear_left_vel * 14.29);
+      rear_right_wheel->SetVelocity(0, rear_right_vel * 14.29);
 
       rclcpp::spin_some(this->node);
 

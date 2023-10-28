@@ -13,8 +13,8 @@ class TeleopTwistKeyboard(Node):
         self.publisher_ = self.create_publisher(Twist, '/cmd_vel', 10)
         self._terminate = False
 
-        self.linear_x = 0.5
-        self.linear_y = 0.5
+        self.linear_x = 0.1
+        self.linear_y = 0.1
         self.angular_z = 1.0
 
         signal.signal(signal.SIGINT, self.signal_handler)
