@@ -5,8 +5,6 @@
     <xacro:property name="base_length" value="0.5"/>
     <xacro:property name="base_width" value="0.5"/>
     <xacro:property name="base_height" value="0.1"/>
-    <xacro:property name="wheel_radius" value="0.075"/>
-    <xacro:property name="wheel_width" value="0.05"/>
 
     <!-- Inertial Macros -->
     <xacro:macro name="inertial_box" params="mass x y z">
@@ -43,39 +41,21 @@
         <xacro:inertial_box mass="10.0" x="${base_length}" y="${base_width}" z="${base_height}"/>
     </link>
 
-    <!-- Wheel Link Macro -->
-    <xacro:macro name="wheel_link" params="name">
-        <link name="${name}">
-            <visual>
-                <geometry>
-                    <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-                </geometry>
-                <material name="grey"/>
-            </visual>
-            <collision>
-                <geometry>
-                    <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
-                </geometry>
-            </collision>
-            <xacro:inertial_cylinder mass="2.0" r="${wheel_radius}" h="${wheel_width}"/>
-        </link>
-    </xacro:macro>
-
     <!-- Wheel Joint Macro -->
     <xacro:macro name="wheel_joint" params="name parent child xyz">
         <joint name="${name}" type="continuous">
             <parent link="${parent}"/>
             <child link="${child}"/>
-            <origin xyz="${xyz}" rpy="0 0 0"/>
+            <origin xyz="${xyz}" rpy="${pi/2} 0 0"/>
             <axis xyz="0 0 1"/>
         </joint>
     </xacro:macro>
 
     <!-- Wheel Links and Joints -->
-    <xacro:wheel_link name="front_left_wheel"/>
-    <xacro:wheel_link name="front_right_wheel"/>
-    <xacro:wheel_link name="rear_left_wheel"/>
-    <xacro:wheel_link name="rear_right_wheel"/>
+    <xacro:mecanum_wheel name="front_left_wheel"/>
+    <xacro:mecanum_wheel name="front_right_wheel"/>
+    <xacro:mecanum_wheel name="rear_left_wheel"/>
+    <xacro:mecanum_wheel name="rear_right_wheel"/>
 
     <xacro:wheel_joint name="front_left_wheel_joint" parent="base_link" child="front_left_wheel" xyz="0.25 0.25 0"/>
     <xacro:wheel_joint name="front_right_wheel_joint" parent="base_link" child="front_right_wheel" xyz="0.25 -0.25 0"/>
