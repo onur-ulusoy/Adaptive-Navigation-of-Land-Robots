@@ -66,4 +66,14 @@
     <xacro:wheel_joint name="front_right_wheel_joint" parent="base_link" child="front_right_wheel" xyz="${joint_offset_length} -${joint_offset_width} 0"/>
     <xacro:wheel_joint name="rear_left_wheel_joint" parent="base_link" child="rear_left_wheel" xyz="-${joint_offset_length} ${joint_offset_width} 0"/>
     <xacro:wheel_joint name="rear_right_wheel_joint" parent="base_link" child="rear_right_wheel" xyz="-${joint_offset_length} -${joint_offset_width} 0"/>
+
+    <!-- Gazebo plugin for mecanum drive -->
+    <gazebo>
+        <plugin filename="$(find rw_gz_plugins)/../lib/libmecanum_drive.so" name="mecanum_drive" > 
+            <robotWidth>${base_width}</robotWidth>
+            <robotLength>${base_length}</robotLength>
+        </plugin>
+    </gazebo>
+
+
 </robot>

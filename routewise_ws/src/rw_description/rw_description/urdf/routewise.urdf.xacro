@@ -6,7 +6,6 @@
     <xacro:include filename="$(find rw_description)/urdf/routewise_material.xacro"/>
     <xacro:include filename="$(find rw_description)/urdf/routewise_core.xacro"/>
 
-
     <!-- Additional robot components, sensors, etc., can be added here -->
 
 </robot>
