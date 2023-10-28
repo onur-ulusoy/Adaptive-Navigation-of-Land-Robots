@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Mecanum Wheel Macro -->
+  <xacro:macro name="mecanum_wheel" params="name">
+  
+    <!-- Properties -->
+    <xacro:property name="wheel_radius" value="0.1"/>
+    <xacro:property name="wheel_width" value="0.05"/>
+    <xacro:property name="roller_radius" value="0.02"/>
+    <xacro:property name="roller_length" value="0.05"/>
+    <xacro:property name="roller_angle" value="0.785398"/> <!-- 45 degrees in radians -->
+
+    <!-- Main Wheel Body -->
+    <link name="${name}">
+      <visual>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <cylinder radius="${wheel_radius}" length="${wheel_width}"/>
+        </geometry>
+      </collision>
+    </link>
+
+    <!-- Roller Macro -->
+    <xacro:macro name="roller" params="name angle">
+      <link name="${name}">
+        <visual>
+          <geometry>
+            <cylinder radius="${roller_radius}" length="${roller_length}"/>
+          </geometry>
+        </visual>
+        <collision>
+          <geometry>
+            <cylinder radius="${roller_radius}" length="${roller_length}"/>
+          </geometry>
+        </collision>
+      </link>
+      <joint name="${name}_joint" type="continuous">
+        <parent link="${name}"/>
+        <child link="${name}"/>
+        <origin rpy="0 0 ${angle}" xyz="0 0 0"/>
+        <axis xyz="0 0 1"/>
+      </joint>
+    </xacro:macro>
+
+    <!-- Rollers -->
+    <xacro:roller name="${name}_roller_1" angle="0"/>
+    <xacro:roller name="${name}_roller_2" angle="${2*pi/3}"/>
+    <xacro:roller name="${name}_roller_3" angle="${4*pi/3}"/>
+    <xacro:roller name="${name}_roller_4" angle="${pi/6}"/>
+    <xacro:roller name="${name}_roller_5" angle="${pi/2 + pi/6}"/>
+    <xacro:roller name="${name}_roller_6" angle="${pi + pi/6}"/>
+
+  </xacro:macro>
+
+</robot>

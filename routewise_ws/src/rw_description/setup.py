@@ -11,9 +11,13 @@ setup(
             ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         # Include the urdf directory and its contents
-        ('share/' + package_name + '/urdf', ['rw_description/urdf/routewise_material.xacro',
+        ('share/' + package_name + '/urdf', ['rw_description/urdf/mecanum_wheel.xacro',
+                                              'rw_description/urdf/routewise_material.xacro',
                                               'rw_description/urdf/routewise_core.xacro', 
-                                              'rw_description/urdf/routewise.urdf.xacro']),
+                                              'rw_description/urdf/routewise.urdf.xacro',]),
+
+        # Include the mesh directory and its contents
+        # ('share/' + package_name + '/meshes', ['rw_description/meshes/mecanum_wheel.stl']),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
